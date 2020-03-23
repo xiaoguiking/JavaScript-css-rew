@@ -134,12 +134,102 @@ console.log(isNaN(a)) // false, 是有效数字，
 1. Number('12') => 12
 2. isNaN(12) ==> false  是有效数字
 ```
+### 其他类型值转换为数字类型
+- Number([val])  (把字符串转换为数字，只要字符串包含任意一个非有效数字，结果就是NaN),空字符串变成0
+ ```
+ Number('12') ------- 12
+ Number('12px') ------- NaN
+ Number('12.5.5') ------  NaN
+ Number('')    -------- 0
+ ```
+ - 布尔转化为数字
+ ```
+ Number(true);   ------- 1
+ Number(false)   ------- 0
+ ```
+ - null 和undefined
+ ```
+ Number(null)   ----- 0
+ Number(undefined) ------- 1
+ ```
+ 
+ - 对象、数组(把引用类型转换为数字，是先toString变成数字，然后转换为数字)
+ ```
+ Number([]) ---------  0
+ Number({}) ---------NaN
+ Nuber([12]) -------  12
+ Number([1,2]) --------- NaN
+
+ ```
+
+ - parseInt/parseFloat([value,[进制]]) 也是转换为数字方法对于字符串说它是从左到右依次查找有效数字字符直到遇到非有效数字字符不再查找。不管后面是否还有都不再查找，把找到的当做数字返回
+ ```
+ let str = '12.3px';   //取出小数部分
+ Number(str); ----  NaN
+ parseInt(str);  // 12   取整
+ parseFloat(str);  // 12.3  取出小数部分
+ 
+ let str1 = 'px10';
+ parseFloat('str'); -------- NaN
+
+ ```
+ - == 默认转换()
+ ```
+ '10' == 10
+ ```
+ 
+
+## 第六章string字符串数据类型
+
+> 所有单引号、双引号、模板字符串包起来的都是字符串
 
 
-## 第四章
-## 第四章
-## 第四章
-## 第四章
+### 其他类型值变成字符串
+- [value].toString()
+```
+console.log(12.toString()); ------- 报语法错误
+
+eg：
+let str = 21；
+str.toString(); --------  "12"
+(NaN).toString() -------- 'NaN'
+(true).toString() ---------  "true"
+[12,21].toString() ------  "12,21"
+
+```
+> null和undefined禁止直接toString(其实可以转换)
+
+> {}.toString() 普通对象除外 ---- [object, Objectt]-===> Object.prototype.toString方法不是转换字符串，而是检测数据类型  
+
+- 字符串拼接
+```
+// 四则运算中除加法之外，都是数学运算，只有加法存在字符串拼接
+（一旦遇到字符串，则不是数学运算，而是拼接）
+console.log('10' + 10)  // 1010;
+console.log('10' - 10 );   //0
+console.log('10px' - 10);  // NaN
+```
+
+## 第七章boolean 布尔类型
+
+> 两个值 true/ false
+
+### 把其他类型变成布尔类型
+
+> 只有0 NaN '' null undefined 五个值变为false，其余都是true
+
+- boolean([value])
+- !/!!
+```
+! 取反（先转为布尔，然后取反）
+console.log(!1);  true--- false
+!! 取反再取反 相当于转换为布尔 Boolean
+console.log(!!1); --- true
+```
+- 条件判断
+
+## 第八章
+## 第九章
 ## 第四章
 ## 第四章
 ## 第四章
