@@ -49,6 +49,8 @@
 
 > 变量：可变的量，在变成语言中，变量只是名字，用来存储代表不同的值
 
+- var/let/const
+
 ```
 // ES3
 var a = 1;
@@ -59,17 +61,17 @@ console.log(a);  --- 输出结果是代表a的值是1；重新赋值最终结果
 let c = 2;
 c = 3;
 
-const x = 112; --- 不能给常量重新赋值
+const x = 112; --- 不能给常量重新赋值， 常量重新赋值会报错
 
 
 ```
-// 创建函数相当于创建变量
+- 创建函数相当于创建变量
 function fn(){}
-// 创建类
+- 创建类
 class A{}
-// ES6的模块导入也可以创建变量
+- ES6的模块导入也可以创建变量
 import React from 'react'
-//Symbol创建唯一值
+- Symbol创建唯一值
 ```
 let n = Symbol(100);
 let m = Symbol(100);
@@ -134,7 +136,7 @@ console.log(isNaN(a)) // false, 是有效数字，
 1. Number('12') => 12
 2. isNaN(12) ==> false  是有效数字
 ```
-### 其他类型值转换为数字类型
+### 字符串类型值转换为数字类型
 - Number([val])  (把字符串转换为数字，只要字符串包含任意一个非有效数字，结果就是NaN),空字符串变成0
  ```
  Number('12') ------- 12
@@ -147,10 +149,10 @@ console.log(isNaN(a)) // false, 是有效数字，
  Number(true);   ------- 1
  Number(false)   ------- 0
  ```
- - null 和undefined
+ - null和undefined
  ```
  Number(null)   ----- 0
- Number(undefined) ------- 1
+ Number(undefined) ------- undefined
  ```
  
  - 对象、数组(把引用类型转换为数字，是先toString变成数字，然后转换为数字)
@@ -228,17 +230,90 @@ console.log(!!1); --- true
 ```
 - 条件判断
 
-## 第八章
-## 第九章
-## 第四章
-## 第四章
-## 第四章
-## 第四章
-## 第四章
-## 第四章
-## 第四章
-## 第四章
-## 第四章
+## 第八章null和undefined区别
+
+> null和undefined都代表是没有
+
+- null: （意料之中）开始不知道值，手动设置为null,后期给予赋值操作
+```
+**1.赋值操作**
+let num = null; 手动设置为null
+num = 12； 给予赋值操作
+
+**2.数值转换**
+Number(null);  //  结果为0
+
+
+**3.null表示'没有对象'，即该处不应该有值**
+
+1)作为函数的参数，表示该函数的参数不是对象
+2)作为对象原型链的终点
+Object.getProtoOf(Object.prototype);
+// null
+```
+
+- undefined：意料之外
+```
+**1.赋值操作**
+let num; ====> 创建一个变量没有赋值，默认值是undefined
+console.log(num);
+
+**2.数值转换**
+Number(undefined)  // 结果为 NaN
+
+
+**3.undefined表示‘缺少值’，此处应该有个值，但是还没有定义**
+
+1）变量被声明，但没有赋值，等于undefined， var i， i // undefined
+
+2）调用函数式，应该提供的参数没有提供，该参数等于undefined // function f(x){console.log(x)}  f() // undefined
+
+3）对象没有赋值的属性，该属性的值为undefined,var o = new Object(); o.p // undefined
+4）函数没有返回值，默认返回undefined。var x =f(); x//undefined
+
+```
+
+## 第九章对象数据类型的基本操作（普通对象）
+
+> {[key]: [value],...} 任何一个对象都是由0到多组键值对（属性名：属性值）组成的（并且属性名不能重复）
+
+```
+let person = {
+	name: 'ck',
+	age: 123,
+	sex: '男'
+}
+```
+**获取属性名对应的属性值方式**
+=> 对象.属性名
+=> 对象['属性名'] 属性名是数组或者字符串格式
+=> 如果属性名是数字，则不能使用点的方式获取属性值
+console.log(person.name); // ck
+console.log(person['age']); //123
+console.log(person.user); // undefined
+
+**设置添加属性名属性值**
+// => 属性名不能重复，存在增加等于是在修改
+`person.fr = '123'`
+
+
+**删除属性**
+
+==> 真删除： 把属性彻底干掉
+delete person[1]
+==> 假删除： 属性还在，但是值为空
+person.sex = null;
+
+## 第十章数组的基本结构（特殊对象类型）
+[](https://www.bilibili.com/video/BV1yE411r7wD?p=19)
+## 第十一章数据类型区别（堆栈底层机制）
+## 第十二章
+## 第十三章
+## 第十四章
+## 第十五章
+## 第十六章
+## 第十七章
+## 第十八章
 ## 第四章
 ## 第四章
 ## 第四章
