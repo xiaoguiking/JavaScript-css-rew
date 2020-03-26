@@ -125,7 +125,7 @@ var let const ---- 关键字
 
 NaN和任何值都不相等，包括自己， NaN！= NaN
 
-### isNaN检测一个值是否为非有有效数字， 不是有效数字返回true，不是有效数字返回false
+### isNaN检测一个值是否为非有有效数字， 不是有效数字返回true，是有效数字返回false
 ```
 isNaN([val])
 
@@ -192,7 +192,7 @@ console.log(isNaN(a)) // false, 是有效数字，
 console.log(12.toString()); ------- 报语法错误
 
 eg：
-let str = 21；
+let str = 12；
 str.toString(); --------  "12"
 (NaN).toString() -------- 'NaN'
 (true).toString() ---------  "true"
@@ -305,20 +305,93 @@ delete person[1]
 person.sex = null;
 
 ## 第十章数组的基本结构（特殊对象类型）
-[](https://www.bilibili.com/video/BV1yE411r7wD?p=19)
-## 第十一章数据类型区别（堆栈底层机制）
-## 第十二章
+
+> 数组是特殊的对象数据类型
+
+`let arr = [12,'ck', true, 12]`
+console.log(arr.length);
+console.log(arr['length']);
+获取ck的值 console.log(arr[1]);
+- 中括号设置的是属性值，属性名是默认生成的数字，从0开始递增，这个数字代表每一项的位置，索引下标
+- 天生默认一个属性名 length 存储数组的长度
+- 第一项索引arr[0], 最后一项索引length-1
+
+
+## 第十一章数据类型区别（堆栈底层机制）稍后看
+
+**堆栈内存（stack && heap）**
+
+ [x] 浏览器渲染js机制
+ [x] 数据类型之间的区别
+ [x] 面试题
+ [x] 数据类型检测
+
+> 问题考察
+	
+```
+// 基础类型值
+let a = 12;
+b = a;
+b = 13;
+console.log(a);  // 12
+
+
+// 引用类型值
+let n = {
+	name: '12'
+}
+let m = n;
+m.name = '34'
+console.log(n.name);  // 34
+```
+### 堆栈内存练习
+
+### 阿里面试题
+
+## 第十二章JS数据类型检测（4种）
+
+- typeof[val]: 用来检测数据类型的运算符
+```
+//基于typeof检测出来的结果
+1. 首先是一个字符串
+2. 字符串中包含对用的类型
+3.局限性 
+3.1typeof null=> 'object' 但是null并不是对象
+3.2基于typeof不能区别当前值是普通对象还是数组对象。返回结果都是 "object"
+
+
+console.log(typeof 1);  "number"  --- 数值型
+console.log(typeof NaN);  ---- 数值型
+```
+- instanceof:  当前实例是否属于某个类
+- constructor： 基于构造函数检测数据类型（类的方式）
+- Object.prototype.toString.call()： 检测数据类型最好办法
+
 ## 第十三章
+
 ## 第十四章
+
 ## 第十五章
+
 ## 第十六章
+
 ## 第十七章
+
 ## 第十八章
-## 第四章
-## 第四章
-## 第四章
-## 第四章
-## 第四章
-## 第四章
-## 第四章
-## 第四章
+
+## 第十九章
+
+## 第二十章
+
+## 第二十一章
+
+## 第二十二章
+
+## 第二十三章
+
+
+## 第二十四章
+
+## 第二十五章
+
+## 第二十六章
