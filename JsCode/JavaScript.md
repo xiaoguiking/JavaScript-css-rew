@@ -31,6 +31,8 @@
 - NetWork 所有的发送请求包括和服务器传输的http报文信息 加载时间，根据加载时间进行项目优化
 - Application 查看storage,本地数据存储
 
+
+
 ## 第二章JS的组成和变量
 
 **JS由三部分组成**
@@ -79,6 +81,7 @@ let m = Symbol(100);
 n == m (false,因为是唯一值缘故)
 
 ```
+
 ## 第三章JS命令规范
 
 - 严格区分大小写
@@ -94,6 +97,7 @@ let studentInfo
 var let const ---- 关键字
 
 ```
+
 ## 第四章JS的数据类型分类
 
 - 基本数据类型
@@ -114,6 +118,7 @@ var let const ---- 关键字
 		+  Math 数学函数对象
 		+  日期对象
 	* 函数数据类型 function
+
 
 ## 第五章number数字类型
 
@@ -181,6 +186,7 @@ console.log(isNaN(a)) // false, 是有效数字，
  ```
  
 
+
 ## 第六章string字符串数据类型
 
 > 所有单引号、双引号、模板字符串包起来的都是字符串
@@ -212,6 +218,7 @@ console.log('10' - 10 );   //0
 console.log('10px' - 10);  // NaN
 ```
 
+
 ## 第七章boolean 布尔类型
 
 > 两个值 true/ false
@@ -229,6 +236,7 @@ console.log(!1);  true--- false
 console.log(!!1); --- true
 ```
 - 条件判断
+
 
 ## 第八章null和undefined区别
 
@@ -273,6 +281,7 @@ Number(undefined)  // 结果为 NaN
 
 ```
 
+
 ## 第九章对象数据类型的基本操作（普通对象）
 
 > {[key]: [value],...} 任何一个对象都是由0到多组键值对（属性名：属性值）组成的（并且属性名不能重复）
@@ -304,6 +313,7 @@ delete person[1]
 ==> 假删除： 属性还在，但是值为空
 person.sex = null;
 
+
 ## 第十章数组的基本结构（特殊对象类型）
 
 > 数组是特殊的对象数据类型
@@ -317,7 +327,8 @@ console.log(arr['length']);
 - 第一项索引arr[0], 最后一项索引length-1
 
 
-## 第十一章数据类型区别（堆栈底层机制）稍后看
+
+## 第十一章数据类型区别（堆栈底层机制）稍后看 20 ------22
 
 **堆栈内存（stack && heap）**
 
@@ -348,6 +359,7 @@ console.log(n.name);  // 34
 
 ### 阿里面试题
 
+
 ## 第十二章JS数据类型检测（4种）
 
 - typeof[val]: 用来检测数据类型的运算符
@@ -356,20 +368,77 @@ console.log(n.name);  // 34
 1. 首先是一个字符串
 2. 字符串中包含对用的类型
 3.局限性 
-3.1typeof null=> 'object' 但是null并不是对象
-3.2基于typeof不能区别当前值是普通对象还是数组对象。返回结果都是 "object"
+	3.1typeof null=> 'object' 但是null并不是对象
+	3.2基于typeof不能区别当前值是普通对象还是数组对象。返回结果都是 "object"
 
 
 console.log(typeof 1);  "number"  --- 数值型
 console.log(typeof NaN);  ---- 数值型
+console.log(type {});  ----   'object'
+console.log(typeof [])  ---- "object"
+
 ```
+
 - instanceof:  当前实例是否属于某个类
 - constructor： 基于构造函数检测数据类型（类的方式）
 - Object.prototype.toString.call()： 检测数据类型最好办法
 
-## 第十三章
+## 第十三章JS常用的操作语句 判断 循环
 
-## 第十四章
+> 条件成立做什么，不成立做什么
+
+- if/else
+- 三元运算符
+- switch case
+
+1.`if/else`
+
+```
+if(条件成立){
+	条件成立code执行
+}else if (条件2) {
+	条件2执行
+}else {
+	以上条件都不成立时候执行
+}
+
+let  a = 5;
+if(a >= 5) {
+	console.log('执行');
+} else {
+	console.log('不执行');
+}
+```
+2.`三元运算符`
+```
+简单if/else处理方式
+1.如果处理事情多，我们使用括号包起来，每一件事用逗号分隔，
+2.如果不需要处理事情，可以使用null和undefined占位
+let a = 5;
+a>=5 ? 执行 : 不执行
+
+a > 0 ? (a++, console.log(a)) : null
+```
+
+3.`switch case`
+```
+1.case情况结束后最好加上break
+2.default === else 以上条件都不成立做的事情
+3.不加break，当前条件成立执行完成后，后面条件不论是否成立都要执行，直到遇到break为止。	
+4.每一种case情况比较用的是 === ，全等
+
+switch （a）{
+	case 1: 
+	console.log('1');
+	break;
+	case 2: 
+	console.log('2');
+	default: 
+	console.log('default');
+}
+```
+
+## 第十四章 基于css实现鼠标滑过出现详情效果
 
 ## 第十五章
 
