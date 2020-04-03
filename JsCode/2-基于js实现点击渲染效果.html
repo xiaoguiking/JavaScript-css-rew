@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基于js实现点击渲染效果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 200px;
+            height: 50px;
+            border: 1px solid coral;
+            box-sizing: border-box;
+            margin: 20px auto;
+            text-align: center;
+            line-height: 50px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .box .detail {
+            position: absolute;
+            right: -1px;
+            top: 48px;
+            width: 500px;
+            height: 100px;
+            box-sizing: border-box;
+            border: darkcyan 1px solid;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 基于css实现，我们需要让详情区域是按钮的子元素 -->
+    <div class="box" id="box">
+        <span>
+            购物车
+        </span>
+        <div class="detail" id="detail" style="display: none">
+            购物车相关信息
+        </div>
+    </div>
+    <!-- import js -->
+    <script>
+        let box = document.getElementById('box');
+        let detail = document.getElementById('detail');
+        // 最终实现效果，可以显示可以隐藏
+        // 元素对象.onxxx事件 = function
+        box.onclick = function () {
+            console.log('点击');
+            // 元素对象.style.xxx = xxx 修改元素的某一个样式值 操作的行内样式 前提是注意需要的是操作行内样式
+            
+            let tmp = detail.style.display;
+            if (tmp === 'none') {
+                // 隐藏时候显示
+                detail.style.display = 'block';
+                box.style.borderBottomColor = '#fff';
+            }else {
+                detail.style.display = 'none';
+                box.style.borderBottomColor = 'darkcyan';
+            }
+        }
+    </script>
+</body>
+
+</html>

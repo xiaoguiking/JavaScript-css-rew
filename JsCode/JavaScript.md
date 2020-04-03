@@ -440,9 +440,116 @@ switch （a）{
 
 ## 第十四章 基于css实现鼠标滑过出现详情效果
 
-## 第十五章
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css实现鼠标滑过显示详情</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 200px;
+            height: 50px;
+            border: 1px solid coral;
+            box-sizing: border-box;
+            margin: 20px auto;
+            text-align: center;
+            line-height: 50px;
+            position: relative;
+        }
+        .box .detail {
+            position: absolute;
+            right: -1px;
+            top: 48px;
+            width: 500px;
+            height: 100px;
+            box-sizing: border-box;
+            border:darkcyan 1px solid;
+            display: none;
+            z-index: -1;
+        }
+        .box:hover {
+            border-bottom-color: #fff;
+        }
+        .box:hover .detail {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    基于css实现，我们需要让详情区域是按钮的子元素
+    <div class="box">
+        <span>
+            购物车
+        </span>
+        <div class="detail">
+            购物车相关信息
+        </div>
+    </div>
+</body>
+</html>
+```
 
-## 第十六章
+## 第十五章 基于js实现点击渲染效果
+
+传统基于操作dom方式实现业务需求
+- 1.想操作谁就先获取谁
+- 2.给某元素绑定事件
+- 3.在事件触发的时候修改某元素的样式
+
+```js
+        let box = document.getElementById('box');
+        let detail = document.getElementById('detail');
+        // 最终实现效果，可以显示可以隐藏
+        // 元素对象.onxxx事件 = function
+        box.onclick = function () {
+            console.log('点击');
+            // 元素对象.style.xxx = xxx 修改元素的某一个样式值 操作的行内样式 前提是注意需要的是操作行内样式
+            
+            let tmp = detail.style.display;
+            if (tmp === 'none') {
+                // 隐藏时候显示
+                detail.style.display = 'block';
+                box.style.borderBottomColor = '#fff';
+            }else {
+                detail.style.display = 'none';
+                box.style.borderBottomColor = 'darkcyan';
+            }
+        }
+```
+
+## 第十六章 掌握for循环
+
+> 重复做某些事情就是循环
+
+- for循环
+- for in 循环
+- for of 循环 ES6
+- while 循环
+- do while 循环
+
++ for 循环
+  - 1.创建循环初始值
+  - 2.设置验证循环执行的条件
+  - 3.条件成立执行循环体的内容
+  - 4.当前循环结束执行步长累计操作
+
+```js
+for(var i = 0; i< 5; i++) {
+	console.log(i); 0 1 2 3 4
+}
+console.log(i); i ++ 最后i值得是5
+```
+> continue 和break
+
+- continue 结束当前这轮循环 continue后面的代码不再执行，继续执行下一轮循环
+- break  强制结束整个循环， break后代码也不再执行
+
 
 ## 第十七章
 
