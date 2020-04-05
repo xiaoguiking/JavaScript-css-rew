@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="inputEl">
+		<button id="buEl">计算结果</button>
+		<script>
+			// 想操作谁就要获取谁
+			let inputEl = document.getElementById('inputEl');
+			let buEl = document.getElementById('buEl');
+
+			// 事件绑定
+			buEl.onclick = function(){
+				let tmp = inputEl.value;
+				// console.log(typeof tmp, tmp, 'value'); // string
+				n = Number(tmp)
+				if(!isNaN(n)){
+					console.log('有效数字');
+					if( n > 0){
+						console.log('整数');
+					}else if( n < 0) {
+						console.log('负数');
+					}else {
+						console.log('0');
+					}
+				}else {
+					console.log('非有效数字');
+				}
+			}
+			
+		</script>
+	</body>
+</html>

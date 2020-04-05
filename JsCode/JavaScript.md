@@ -551,23 +551,44 @@ console.log(i); i ++ 最后i值得是5
 - break  强制结束整个循环， break后代码也不再执行
 
 
-## 第十七章
+## 第十七章 判断逻辑
+3-判断逻辑.html
 
-## 第十八章
-
+## 第十八章 元素对象的深一层理解（堆栈） 跳过 29 - 53
 ## 第十九章
-
 ## 第二十章
-
 ## 第二十一章
-
 ## 第二十二章
-
 ## 第二十三章
-
-
 ## 第二十四章
-
 ## 第二十五章
-
 ## 第二十六章
+
+## 箭头函数 arrow function（Es6）
+
+- 写法对比
+	```js
+	普通函数写法
+	function sum(n, m) {
+		return n + m ;
+	}
+	
+	箭头函数
+	let sum = (n, m) => {
+		return n + m;
+	}
+	
+	// 如果函数体中只有一行return,可以省略return，一行完成
+	let sum = (n, m) => n + m;
+	console.log(sum(10, 20))
+	```
+	
+	```js
+	function fn(n){
+		return function(m){
+			return n + m;
+		}
+	}
+	
+	let fn = n => m => n + m
+	```
