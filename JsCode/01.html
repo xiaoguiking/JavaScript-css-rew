@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>过段时间内浏览器自动关闭</title>
+	</head>
+	<body>
+		<script>
+			var maxTime = 30;
+			var time = maxTime;
+			// let BodyEL = document.getElementsByTagName('body');
+			let BodyEL = document.querySelector('body');
+			console.log(BodyEL);	
+			BodyEL.addEventListener('keydown', function(e){
+				time = maxTime;
+			});
+			var interId = setInterval(() => {
+				time -- ;
+				console.log(time, 'time');
+				if(time <= 0){
+					showMessage();
+					clearInterval(interId);
+				}
+			}, 1000)
+			
+			// 关闭页面方法
+			function showMessage(){
+				alert('页面需要关闭');
+				window.close();
+			}
+		</script>
+	</body>
+</html>

@@ -1,13 +1,12 @@
 # JavaScript 基础
 
-
 **JavaScript目录**
 
 [TOC]
 
 
 
-## 第一章浏览器内核和控制台
+## 1、浏览器内核和控制台
 
 ### 常用浏览器
  - webkit内核（V8引擎）
@@ -33,7 +32,7 @@
 
 
 
-## 第二章JS的组成和变量
+## 2、JS的组成和变量
 
 **JS由三部分组成**
 - [x] ECMA(es): 描述了该语言的语法和基本对象
@@ -82,7 +81,25 @@ n == m (false,因为是唯一值缘故)
 
 ```
 
-## 第三章JS命令规范
+**常量**
+
+```js
+常量一旦定义，不能再次赋值
+要求所有所有字母大写，每个单词用下划线分割
+
+const EVENT_ID =  'event_id';
+
+```
+
+
+
+
+
+
+
+
+
+## 3、JS命令规范
 
 - 严格区分大小写
 - 使用数字、字母、下划线、$,数字不能作为开头
@@ -98,7 +115,7 @@ var let const ---- 关键字
 
 ```
 
-## 第四章JS的数据类型分类
+## 4、JS的数据类型分类
 
 - 基本数据类型
 	- 数字 number
@@ -120,7 +137,7 @@ var let const ---- 关键字
 	* 函数数据类型 function
 
 
-## 第五章number数字类型
+## 5、number数字类型
 
 > 包含: 常规数字、NaN
 
@@ -159,7 +176,7 @@ console.log(isNaN(a)) // false, 是有效数字，
  Number(null)   ----- 0
  Number(undefined) ------- undefined
  ```
- 
+
  - 对象、数组(把引用类型转换为数字，是先toString变成数字，然后转换为数字)
  ```
  Number([]) ---------  0
@@ -184,16 +201,16 @@ console.log(isNaN(a)) // false, 是有效数字，
  ```
  '10' == 10
  ```
- 
 
 
-## 第六章string字符串数据类型
+
+## 6、string字符串数据类型
 
 > 所有单引号、双引号、模板字符串包起来的都是字符串
 
 
 ### 其他类型值变成字符串
-- [value].toString()
+- [value].toString()  转换进制
 ```
 console.log(12.toString()); ------- 报语法错误
 
@@ -219,7 +236,17 @@ console.log('10px' - 10);  // NaN
 ```
 
 
-## 第七章boolean 布尔类型
+
+- toFixed(保留小数位数) 保留几个小数，并且四舍五入
+
+  ```js
+  var a = 255;
+  console.log(a.toFixed());   255.00
+  ```
+
+
+
+## 7、boolean 布尔类型
 
 > 两个值 true/ false
 
@@ -238,7 +265,7 @@ console.log(!!1); --- true
 - 条件判断
 
 
-## 第八章null和undefined区别
+## 8、null和undefined区别
 
 > null和undefined都代表是没有
 
@@ -282,7 +309,7 @@ Number(undefined)  // 结果为 NaN
 ```
 
 
-## 第九章对象数据类型的基本操作（普通对象）
+## 9、对象数据类型的基本操作（普通对象）
 
 > {[key]: [value],...} 任何一个对象都是由0到多组键值对（属性名：属性值）组成的（并且属性名不能重复）
 
@@ -305,7 +332,6 @@ console.log(person.user); // undefined
 // => 属性名不能重复，存在增加等于是在修改
 `person.fr = '123'`
 
-
 **删除属性**
 
 ==> 真删除： 把属性彻底干掉
@@ -314,7 +340,7 @@ delete person[1]
 person.sex = null;
 
 
-## 第十章数组的基本结构（特殊对象类型）
+## 10、数组的基本结构（特殊对象类型）
 
 > 数组是特殊的对象数据类型
 
@@ -328,9 +354,30 @@ console.log(arr['length']);
 
 
 
-## 第十一章数据类型区别（堆栈底层机制）稍后看 20 ------22
+## 11、数据类型区别（堆栈底层机制）稍后看 20 ------22
 
 **堆栈内存（stack && heap）**
+
+
+
+| 栈                                                           | 堆                          |
+| ------------------------------------------------------------ | --------------------------- |
+| 内存中用完自动删除                                           | 内存中用玩玩不会自动删除    |
+| 数据调用快                                                   | 数据调用慢                  |
+| name= "ck"                                                   | {phone: 1231, age: 12} 地址 |
+| danwei = 对象地址 xuexiao = danwei(对象地址)调用同一个引用地址 |                             |
+|                                                              |                             |
+|                                                              |                             |
+
+
+
+常驻内存（堆） 造成内存泄露
+
+- 解决：  清除该对象的所有引用关系 obj = null  ---  注意是所有
+
+-  垃圾回收机制
+
+
 
  [x] 浏览器渲染js机制
  [x] 数据类型之间的区别
@@ -338,7 +385,7 @@ console.log(arr['length']);
  [x] 数据类型检测
 
 > 问题考察
-	
+
 ```
 // 基础类型值
 let a = 12;
@@ -357,10 +404,10 @@ console.log(n.name);  // 34
 ```
 ### 堆栈内存练习
 
-### 阿里面试题
+### 
 
 
-## 第十二章JS数据类型检测（4种）
+## 12、JS数据类型检测（4种）
 
 - typeof[val]: 用来检测数据类型的运算符
 ```
@@ -383,7 +430,7 @@ console.log(typeof [])  ---- "object"
 - constructor： 基于构造函数检测数据类型（类的方式）
 - Object.prototype.toString.call()： 检测数据类型最好办法
 
-## 第十三章JS常用的操作语句 判断 循环
+## 13、JS常用的操作语句 判断 循环
 
 > 条件成立做什么，不成立做什么
 
@@ -438,7 +485,7 @@ switch （a）{
 }
 ```
 
-## 第十四章 基于css实现鼠标滑过出现详情效果
+## 14、 基于css实现鼠标滑过出现详情效果
 
 ```html
 <!DOCTYPE html>
@@ -495,7 +542,7 @@ switch （a）{
 </html>
 ```
 
-## 第十五章 基于js实现点击渲染效果
+## 15、基于js实现点击渲染效果
 
 传统基于操作dom方式实现业务需求
 - 1.想操作谁就先获取谁
@@ -523,7 +570,7 @@ switch （a）{
         }
 ```
 
-## 第十六章 掌握for循环
+## 16、掌握for循环
 
 > 重复做某些事情就是循环
 
@@ -551,18 +598,241 @@ console.log(i); i ++ 最后i值得是5
 - break  强制结束整个循环， break后代码也不再执行
 
 
-## 第十七章 判断逻辑
+## 17、  运算符
 3-判断逻辑.html
 
-## 第十八章 元素对象的深一层理解（堆栈） 跳过 29 - 53
-## 第十九章
-## 第二十章
-## 第二十一章
-## 第二十二章
-## 第二十三章
-## 第二十四章
-## 第二十五章
-## 第二十六章
+### 算术运算	
+
+```js
+当运算时，变量需要根据实际情况是否覆盖赋值运算，以减少定义多个变量造成的内存占用
+var  x= 8;
+x =x + 1;
+console.log(x);  // 9
+
+```
+
+> 隐式转化： 当运算中有不同类型的值运算时候，会自动转换为相同类型在进行运算，隐式转换就是js语言中自动转换方法，
+
+> 强制转换  Number（） 、 String（） 、 Boolean
+
+- 数值与字符相加，隐式转换为字符，然后做加法运算。
+
+### 一元运算符
+
+```js
+var  x = 5;
+x++;  // x = x + 1;
+console.log(x);  // 6
+
+var y = 5;
+++y;
+console.log(y);  // 6
+
+++x或者 x++独立执行的时候都是一样的，  x + 1
+
+赋值运算时候区别：
+var a = 5;
+var b = a++;
+console.log(a, b);  // 6, 5
+
+var a = 5;
+var b = ++ a;
+console.log(a,b);  // 6 6
+
+a ++   ++在后面， 先赋值再 + 1
+++ a，  ++ 前面， 先 + 1， 后赋值
+影响的是赋值的变量或者获取的结果。
+
+```
+
+
+
+###  关系运算符
+
+> 关系运算，运算的结果是一个布尔值
+
+```
+console.log(5 > 6); false
+console.log(5 >= 6);  false
+console.log(5 < 6 );  true
+console.log(5 <= 6); true
+
+console.log(5 == 6)  // 先比较类型然后比较值
+console.log("5" = 5);  true
+console.log(null == undefined)  布尔值判断 false == false;
+console.log(false == undefined); false 
+console.log(false == null ); falase
+console.log(0 == true );  // true
+```
+
+> 相等运算和不相等运算， 一定必须使用 ===  和！==
+
+### 逻辑运算
+
+```js
+
+// true && true     true
+否则都是false
+
+// false || false   false
+否则都是 false
+
+var a = false;
+if(!a){ // true
+    console.log('打印');
+    // 能进入这里 a = false， "", 0, undefined, null
+}
+
+if(a) {
+    
+}
+```
+
+
+
+### 位运算符 （跳过0918）
+
+10 转化为 2进制  1010 
+
+
+
+## 18、 循环语句
+
+###  多分支结构
+
+```js
+switch (表达式) {
+    case 值1:
+        code
+        break;
+    case 值2:
+        code
+        break;
+    default:
+        code
+        break;
+        }
+表达式是一个变量或者运算式，
+这个运算的结果或等于这个变量的值下面case对应的某一个
+
+如果没有break，case会穿透，比如周一到周五都做同一件事
+```
+
+
+
+### 条件语句 （对比三元表达式）
+
+```js
+if(条件) {
+	code1
+} else if(条件) {
+	code2
+} else {
+// 都不满足时候执行
+	code3 
+}
+```
+
+
+
+### 基础while
+
+````js
+var i = 0 ;
+// 条件的值是true 进入下面语句块，一直重复执行，直到条件变成false
+// 就不再执行语句块了
+while(i < 100)
+{
+    i++；
+}
+console.log(i);
+
+// document.write(); 可以给body中写入文本和HTML标签
+document.write('<div></div>');
+
+
+1.有变量并且有初始值
+2.有关变量的条件
+3.让变量不断向条件外变化 为了条件不满足
+
+条件本身也是每次参与循环，每次执行的
+// 求1- 100 和
+var i = 0 ;
+var sum = 0;
+while(i <=  100){  或者 i ++ < 100
+      sum +=i;
+      i++;
+    直接写成 sum +=i++;
+ }
+console.log(sum);
+````
+
+
+
+### 死循环
+
+```js
+var i = 0;
+var sum = 0;
+while(i < 50) {
+	sum ++;
+}
+console.log(sum);  // 浏览器陷入死循环
+
+// 利用死循环完成循环语法
+while(true) {
+    if(条件满足) {
+       	break;
+       }
+}
+在死循环中我们需要导入一个条件，当满足条件跳出循环，使用break
+
+while(true) {
+    if( i < 50) {
+        break;
+    }
+    i ++;
+}
+console.log(i ++);
+
+
+
+var i = 100;
+var sum = 0;
+while(i--) {
+    sum+=i;
+}
+console.log(sum);  // 求和操作
+
+
+//如果循环次数较多，可能出现循环时间较长，默认时间非常长陷入死循环
+一般循环要求不能超过一千万次
+
+var i = 0;
+while(i < 10000000000000){
+      i ++
+      }
+console.log(i); 死循环
+
+```
+
+
+
+### 双重循环
+
+
+
+### dowhile
+
+
+
+
+
+## 19、
+
+## 20、
+
+
 
 ## 箭头函数 arrow function（Es6）
 
