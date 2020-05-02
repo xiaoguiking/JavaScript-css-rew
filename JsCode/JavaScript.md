@@ -92,13 +92,6 @@ const EVENT_ID =  'event_id';
 ```
 
 
-
-
-
-
-
-
-
 ## 3、JS命令规范
 
 - 严格区分大小写
@@ -811,20 +804,43 @@ console.log(sum);  // 求和操作
 var i = 0;
 while(i < 10000000000000){
       i ++
-      }
+   }
 console.log(i); 死循环
 
 ```
 
-
-
 ### 双重循环
-
-
-
+九九乘法表
+```js
+var i = 1;
+while(i < 10) {
+	var j = i;
+	while( i < 10) {
+	document.write(i+"*"+j = i*j+ "&nbsp;");
+		j++;
+	}
+	document.write('<br />');
+	i ++ ;
+}
+```
 ### dowhile
 
+```js
+do {
+	循环体
+}while (条件)
+不管是否满足条件，都先执行一次循环体先做运算再走判断条件
+// 
 
+var  i = 0; 
+var sum = 0;
+do {
+	sum+=i;
+	i++;
+}
+while(i < 100)
+console.log(sum);
+```
 
 
 

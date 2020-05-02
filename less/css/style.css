@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.big {
+  width: 200px;
+  height: 400px;
+  margin: 0 auto;
+  border: 1px solid cyan;
+  position: relative;
+}
+.big .small {
+  width: 50px;
+  height: 50px;
+  background: #bb2233;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
