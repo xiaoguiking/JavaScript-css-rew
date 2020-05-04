@@ -30,6 +30,7 @@ export default class CommentInput extends Component {
         }
         this.setState({content:''});
     }
+
     render() {
         let {username, content} = this.state;
         return (
