@@ -6,7 +6,7 @@ export default class CommentInput extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: '123',
+            username: '',
             content: ''
         }
     }

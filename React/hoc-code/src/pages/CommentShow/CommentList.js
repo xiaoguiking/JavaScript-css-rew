@@ -1,18 +1,24 @@
 /**
  * CommentList 整体组件
  */
-import React, { Component } from 'react'
-export default  class CommentList extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  }
-    }
-    render() { 
-        return ( 
+import React, { Component } from 'react';
+import Comment from './Comment';
+
+export default class CommentList extends Component {
+    static defaultProps = {
+        comments: []
+      }
+    render() {
+        // const comments = [
+        //     { username: 'Jerry', content: 'Hello' },
+        //     { username: 'Tomy', content: 'World' },
+        //     { username: 'Lucy', content: 'Good' }
+        // ]
+
+        return (
             <div>
-            CommentList
+                {this.props.comments.map((comment, i) => <Comment comment={comment} key={i}/>)}
             </div>
-         );
+        );
     }
 }
- 
