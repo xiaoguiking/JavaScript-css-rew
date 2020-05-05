@@ -34,12 +34,12 @@ for (let key in arr) {
 // 4 5
 // a 8
 
-// ES6 for--of
+// ES6 for--of 重点 遍历新型数据结构
 for (let item of arr) {
   console.log(item)
 }
 
-// 案例
+// 案例 找出每个最小值
 const Pr = {
   A: [1, 2, 3],
   B: [4, 5, 6],
