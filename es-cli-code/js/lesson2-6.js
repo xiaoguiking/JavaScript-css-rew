@@ -24,8 +24,16 @@ class Fruit {
   constructor(type) {
     this.type = type;
   }
+  // 公有属性 prototype
   buy() {
     console.log("水果 :>> ");
+  }
+  // 只读属性写入
+  get age() {
+    return 4;
+  }
+  set age(val) {
+    this.relAge = val;
   }
 }
 let apple = new Fruit("apple");
@@ -33,3 +41,6 @@ let banana = new Fruit("banana");
 console.log(apple, banana);
 apple.buy();
 banana.buy();
+apple.age = 5; // 无法改变 单个get时候
+console.log("age :>> ", apple.age, apple.relAge);
+//  私有属性private
