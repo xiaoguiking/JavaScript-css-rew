@@ -1,0 +1,57 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-05-17 21:30:26
+ * @LastEditTime: 2020-05-17 21:55:37
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \ReactTraine:\HTML5train\demofont\JS-CSS3-React\JavaScript-CSS3-Rew\HTML5\localStorage.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>本地存储</title>
+  </head>
+  <body>
+    <script>
+      //   sessionStorage
+      //   function saveStorage(id) {
+      //     var target = document.getElementById(id);
+      //     var str = target.value;
+      //     sessionStorage.setItem("message", str);
+      //   }
+      //   function loadStorage(id) {
+      //     var target = document.getElementById(id);
+      //     var msg = sessionStorage.getItem("message");
+      //     target.innerHTML = msg;
+      //   }
+      //   //   localStorage
+      function saveStorage(id) {
+        var target = document.getElementById(id);
+        var str = target.value;
+        localStorage.setItem("message", str);
+      }
+      function loadStorage(id) {
+        var target = document.getElementById(id);
+        var msg = localStorage.getItem("message");
+        target.innerHTML = msg;
+      }
+    </script>
+    <h1>web storage</h1>
+    <p id="msg"></p>
+    <input type="text" id="input" />
+    <input type="button" value="保存数据" onClick="saveStorage('input')" />
+    <input type="button" value="读取数据" onClick="loadStorage('msg')" />
+    <ul>
+      sessionStorage
+      <li>sessionStorage.setItem(key,value)保存数据</li>
+      <li>变量=sessionStorage.getItem(key)读取数据</li>
+    </ul>
+    <ul>
+      localStorage
+      <li>保存数据：localStorage.setItem(key, value)</li>
+      <li>变量localStorage.getItem(key)</li>
+    </ul>
+  </body>
+</html>
