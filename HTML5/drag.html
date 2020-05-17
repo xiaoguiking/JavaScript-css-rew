@@ -1,0 +1,90 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-05-16 23:00:00
+ * @LastEditTime: 2020-05-17 21:00:39
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \ReactTraine:\HTML5train\demofont\JS-CSS3-React\JavaScript-CSS3-Rew\HTML5\lesson1.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>drag</title>
+    <style></style>
+  </head>
+  <body onload="init()">
+    <script>
+      function init() {
+        var source = document.getElementById("dragme");
+        var dest = document.getElementById("text");
+        // 1 拖放开始
+        source.addEventListener(
+          "dragstart",
+          function (ev) {
+            // 向dataTransfer对象追加数据
+            var dt = ev.dataTransfer;
+            // 拖放操作的视觉效果
+            dt.effectAllowed = "copy";
+            // 2拖动元素为dt.setData('text/plain', this.id);
+            dt.setData("text/plain", "你好");
+          },
+          false
+        );
+        // 3 拖放结束
+        dest.addEventListener(
+          "dragend",
+          function (ev) {
+            // 不执行默认处理，拒绝被拖放
+            ev.preventDefault();
+          },
+          false
+        );
+        // 4drop 被拖放
+        dest.addEventListener(
+          "drop",
+          function (ev) {
+            // 从DataTransfer 对象取得数据
+            var dt = ev.dataTransfer;
+            var text = dt.getData("text/plain");
+            dest.textContent += text;
+            // 5不执行默认处理 拒绝被拖放
+            ev.preventDefault();
+            // 停止事件传播
+            ev.stopPropagation();
+          },
+          false
+        );
+      }
+      // 6设置页面属性，不执行默认处理，拒绝被拖放
+      document.ondragover = function (e) {
+        e.preventDefault();
+      };
+      document.ondrop = function (e) {
+        e.preventDefault();
+      };
+    </script>
+    <h1>简单拖放实例</h1>
+    <!-- 将draggable设为true -->
+    <div
+      id="dragme"
+      draggable="true"
+      style="width: 200px; border: 1px solid red;"
+    >
+      请拖放
+    </div>
+    <div
+      id="text"
+      style="width: 200px; height: 200px; border: 1px solid blue;"
+    ></div>
+  </body>
+</html>
+<!-- 自定义拖放图标 -->
+<!-- 创建图标元素 -->
+var dragIcon = document.createElement('img');
+<!-- 设定图标来源 -->
+dragIcon.src="http://twivatar.org/twitter/mini";
+source.addEventListener("dragestart", function(ev){ var dt = ev.dataTransfer;
+<!-- 设定自定义图标 -->
+dt.setDragImage(dragIcon, -10, -10); dt.setData("text/plain", "aaa"); }, false)
