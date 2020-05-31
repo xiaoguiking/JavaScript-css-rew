@@ -1,24 +1,43 @@
 /**
  * CommentList 整体组件
  */
-import React, { Component } from 'react';
-import Comment from './Comment';
+import React, { Component } from "react";
+import Comment from "./Comment";
+import PropTypes from "prop-types";
 
 export default class CommentList extends Component {
-    static defaultProps = {
-        comments: []
-      }
-    render() {
-        // const comments = [
-        //     { username: 'Jerry', content: 'Hello' },
-        //     { username: 'Tomy', content: 'World' },
-        //     { username: 'Lucy', content: 'Good' }
-        // ]
+  static propTypes = {
+    comments: PropTypes.array,
+    onDeleteComment: PropTypes.func,
+  };
 
-        return (
-            <div>
-                {this.props.comments.map((comment, i) => <Comment comment={comment} key={i}/>)}
-            </div>
-        );
+  static defaultProps = {
+    comments: [],
+  };
+
+  handleDeleteComment(index) {
+    if (this.props.onDeleteComment) {
+      this.props.onDeleteComment(index);
     }
+  }
+  render() {
+    // const comments = [
+    //     { username: 'Jerry', content: 'Hello' },
+    //     { username: 'Tomy', content: 'World' },
+    //     { username: 'Lucy', content: 'Good' }
+    // ]
+
+    return (
+      <div>
+        {this.props.comments.map((comment, i) => (
+          <Comment
+            comment={comment}
+            key={i}
+            index={i}
+            onDeleteComment={this.handleDeleteComment.bind(this)}
+          />
+        ))}
+      </div>
+    );
+  }
 }
