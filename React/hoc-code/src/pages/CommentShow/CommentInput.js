@@ -8,8 +8,18 @@ export default class CommentInput extends Component {
     this.state = {
       username: "",
       content: "",
+      createdTime: "",
     };
   }
+
+  UNSAFE_componentWillMount() {
+    this._loadUsername();
+  }
+
+  componentDidMount() {
+    this.textarea.focus();
+  }
+
   // 监听name
   handleUsernameChange(e) {
     this.setState({
@@ -28,7 +38,7 @@ export default class CommentInput extends Component {
   handleSubmit() {
     if (this.props.onSubmit) {
       const { username, content } = this.state;
-      this.props.onSubmit({ username, content });
+      this.props.onSubmit({ username, content, createdTime: +new Date() });
     }
     this.setState({ content: "" });
   }
@@ -40,6 +50,7 @@ export default class CommentInput extends Component {
       this.setState({ username });
     }
   }
+
   // 保存username到localStorage
   _saveUsername(username) {
     localStorage.setItem("username", username);
@@ -48,14 +59,6 @@ export default class CommentInput extends Component {
   // 失去焦点执行保存方法
   handleUsernameBlur(event) {
     this._saveUsername(event.target.value);
-  }
-
-  UNSAFE_componentWillMount() {
-    this._loadUsername();
-  }
-
-  componentDidMount() {
-    this.textarea.focus();
   }
 
   render() {
