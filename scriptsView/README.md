@@ -238,15 +238,229 @@ document.write(`indexOf返回` + stringIndex);
 返回 0 表示有这个值存在
 ```
 
+- string.substring(start, stop)
+
+```js
+start(0, stop)
+字符串截取，设置两个参数的指定位置，然后将两个参数间的字符串返回给设置的变量，当两个参数相等，就返回一个空字符串，如果没有指定最后的参数，系统默认截取到字符串对象末尾
+
+var str = "字符串对象截取";
+str1 = str.substring(5,6);
+console.log(str1); // 截
 ```
 
+- anchor
+
+```js
+在页面创建和显示一个html超文本目标，必须在文档中建立一个锚点，
+然后调用write方法在文档中写出该链接锚点，达到快速定位的目的
+<p algin="left">字符的<a href="#anc">引用</a></p>
+str = "this is anchor";
+anc = zifu.anchor("anc");
+document.write("anc");
 ```
 
 ##### 2.3.2 Date 对象
 
+> Date 对象保存从 1970 年 1 月 1 日 0 时 0 分 0 秒 0 毫秒到记录时间的毫秒值。
+
+`创建jsDate对象的语法`
+
+- 1.无参创建
+  `var date = new Date()`
+- 2.通过值创建
+  `var date = Date(dateVal)`创建一个指定时间，dateVal 可以是数字获取字符串。数字（1970 年 1 月 1 日 0 时 0 分 0 秒 0 毫秒 + dateVal），
+
+- 3.通过多个参数创建
+  `var date = new Date(year, month, date[, hours[, minutes[, seconds[, ms]]]]);`
+
+  ```js
+  year: 必选项 完整的年份 比如1979
+  month: 必选项 表示月份， 0-11之间的整数（1月至12月）
+  date: 必选项 表示日期 1-31之间的整数
+  hours: 可选项 如果提供minutes参数必须给出，表示小时，0-23的整数
+  minutes: 可选项 表示分 0-59分
+  seconds: 表示秒 0-59 整数
+  ms: 表示毫秒 0-999 整数
+  ```
+
+  https://www.w3school.com.cn/jsref/jsref_obj_date.asp 方法连接
+
 #### 2.3.3 Math 对象
 
 #### 2.4 数组
+
+> 数组是某类数据的集合，数据类型包括整型字符串对象
+
+1.定义数组
+
+> var arr = new Array(10)
+
+```js
+var arr = new array();
+a[0] = 100;
+a[1] = "12";
+a[2] = "数组";
+a[3] = { x: 1, y: 2 };
+
+数组可以在实例化的时候直接赋值;
+var arr1 = new Array(1, 2, 4, 5, 6, 7);
+```
+
+2.多维数组
+
+```js
+var a = new Array([1, 2, 34], [3, 4, 5], [12, 12]);
+var b = [
+  [1, 2, 34],
+  [3, 4, 5],
+  [12, 12],
+];
+```
+
+3. 对象
+
+```js
+var aa = new Object();
+aa.x = "对";
+aa.y = "象";
+console.log(aa);
+```
+
+4. 数组元素操作
+   通过数组[下标]读写元素
+
+5.数组循环
+
+```js
+for 循环
+var a = [1, 2, 3, 4, 5, 6, 7, , 8];
+for (var i = 0; i < a.length; i++) {
+  console.log(a[i]);
+}
+
+for in(遍历数组或者对象)
+var a = [1,2,3,4,56]
+for(var e in a){
+  console.log(a[e])
+}
+```
+
+6.数组常用函数
+
+- concat
+
+```js
+现有数组后追加数组，并返回新数组，不影响现有数组.
+注意： 该函数只能用于数组或者字符串。
+var arr = [12, '12']
+var arr1 = [45];
+console.log(arr.concat(arr1)) // [12, '12', 45]
+```
+
+- join
+
+```js
+用指定间隔字符串连接起来，把数组转为字符串。只能转换一维数组
+var arr2 = [1, 2, 3, 4, 5, 6, , 7, , 8];
+document.write(arr2.join() + `<hr/>`); // 数组变成默认逗号间隔的字符串
+
+```
+
+- pop
+
+```js
+删除数组最后一个元素，并返回该元素
+var arr = [12, 323, 23,23];
+console.log(arr.pop()); // 输出 23
+console.log(arr) // [12, 323]
+
+```
+
+- push
+
+```js
+往数组后添加元素，并返回数组新长度,
+
+var arr = [12, 34, 56]
+console.log(arr.push('添加新元素')); // 长度为4
+arr ====== [12,34, 56, '添加新元素']
+```
+
+- sort
+
+```js
+按照字符串排序;
+var arr5 = [12, 456, 1212, 3, 32, 234, 23];
+document.write(arr5.sort() + `<hr/>`);
+
+var arr6 = arr5;
+arr6.sort((x, y) => x - y);
+document.write(`整型排序结果` + arr6);
+```
+
+- shift
+
+```js
+删除数组第一个元素，并返回该元素，
+var arr7 = ["卫庄", "赤练", "白凤"];
+document.write("shift删除后返回该元素：" + arr7.shift());
+document.write("删除后的结果：" + arr7);
+```
+
+- unshift
+
+```js
+数组最前面添加元素，返回数组新长度
+document.write(arr7.unshift("添加元素绝望"));  //3
+document.write("结果：" + arr7 + "<hr/>");  // ["添加元素绝望", "赤练", "白凤"]
+```
+
+- arr.slice(start, end)
+
+```js
+不包括结束下标位置;
+返回数组片段;
+
+var arr8 = ["a", "b", "c", "d", "e", "f", "g"];
+document.write(arr8.slice(1, 2)); //
+console.log(arr8.slice(1, 2)); //["b"]
+console.log(arr8.slice(5)); //["f", "g"]
+```
+
+- arr.splice(index, howmany(删除数量), item(添加新元素));
+
+```js
+splice()从数组中添加或者删除项目，然后返回被删除的项目
+该方法改变原数组
+
+var arr9 = ["a", "b", "c", "d", "e", "f", "g"];
+document.write("返回被删除的元素:" + arr9.splice(3, 1));  // d
+document.write("结果:" + arr9 + "<hr/>");
+document.write("添加元素:" + arr9.splice(6, 0, "添加元素"));
+document.write("结果:" + arr9); // ["a", "b", "c",  "e", "f", "g", '添加元素'];
+```
+
+- toString()
+
+```js
+数组转换为字符串,不止数组，所有对象也可以
+var a = [3, 5, 6, 7, 8, 9, [12, 34, "12"]];
+不受维度限制
+document.write(a.toString()); //3,5,6,7,8,9,12,34,12
+```
+
+- toLocalString
+
+```js
+var b = new Date();
+document.write(b.toString() + "<br/>"); // 输出当前时间
+document.write(b.toLocaleString() + "<br/>");
+document.write(b.toLocaleDateString() + "<br/>");
+Sun May 31 2020 15:37:45 GMT+0800 (中国标准时间)
+2020/5/31 下午3:37:45
+2020/5/31
+```
 
 #### 2.5 js 错误
 
@@ -303,6 +517,10 @@ document.write(`indexOf返回` + stringIndex);
 ### ajax 技术
 
 ### jquery 框架
+
+```
+
+```
 
 ```
 

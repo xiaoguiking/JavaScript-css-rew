@@ -27,3 +27,14 @@ document.write(`输出结果` + charString);
 var string = "hello";
 stringIndex = string.indexOf("c");
 document.write(`indexOf返回` + stringIndex);
+
+// var str = "substring字符串截取";
+// str1 = str.substring(12);
+// document.write(str1 + `字符串截取`);
+var str = "字符串对象截取";
+str1 = str.substring(5, 6);
+console.log(str1);
+
+zifu = "this is anchor";
+anc = zifu.anchor("anc");
+document.write("anc");
