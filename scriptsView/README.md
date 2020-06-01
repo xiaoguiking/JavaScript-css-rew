@@ -466,19 +466,63 @@ Sun May 31 2020 15:37:45 GMT+0800 (中国标准时间)
 
 #### 3.1DOM 编程基础
 
+> 完整的 JavaScript 三部分组成
+
+- 核心 ECMAScript
+- 文档对象模型 DOM
+- 浏览器对象模型 BOM
+
+DOM 通过创建树表示文档，删除、添加、替换节点
+
 #### 3.2window 对象
 
+> JavaScript 对象分为三种类型
+
+- 用户定义对象 user-defined object
+- 内置对象 Array Math Date
+- 宿主对象 浏览器提供的对象（window）
+
 ##### 3.2.1window 对象常用属性
+
+https://developer.mozilla.org/zh-CN/docs/Web/API/Window
 
 ##### 3.2.2window 对象常用方法
 
 ##### 3.2.3window 对象事件
 
+| 事件名   | 描述           |     |
+| -------- | -------------- | --- |
+| onload   | 装载完成后触发 |     |
+| onunload | 退出时触发     |     | onbeforeunload | 发生在 onunload 之前 |
+| onhelp   | 显示帮助时触发 |     |
+| onfocus  | 聚焦触发       |     |
+| onblur   | 失去焦点触发   |     |
+| onerror  | 错误触发       |     |
+| onresize | 改变大小触发   |     |
+| onscroll | 滚动触发       |     |
+| onmove   | 对象移动触发   |     |
+
 #### 3.3 history 和 location 事件
 
 ##### 3.3.1 history 对象
 
+1.(window).history，常用 length 属性，
+通过该属性得到 history 保存的历史列表长度，用户访问过的不同地址的数目。
+history(current, previous, next)在现在浏览器中不能整除访问
+
+2.方法
+| 方法名 | 描述 |
+| -------- | --------------
+| back() | 历史列表前一个网页 按下回退按钮 |
+| forward() | 前进 |
+| go(number) | 括号内（正数或负数） |
+
+- history.go(1) === forward() 前进
+- history.go(-1) === back() 后退
+- history.go(-2) === back()执行 2 次
+
 ##### 3.3.2 location 对象
+
 
 ##### 3.4 document 对象
 

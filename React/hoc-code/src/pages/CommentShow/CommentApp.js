@@ -16,7 +16,7 @@ export default class CommentApp extends Component {
     };
   }
 
-  UNSAFE_componentWillMount() {
+  componentWillMount() {
     this._loadComments();
   }
 

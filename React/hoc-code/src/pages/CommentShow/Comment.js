@@ -17,7 +17,7 @@ export default class Comment extends Component {
     };
   }
 
-  UNSAFE_componentWillMount() {
+  componentWillMount() {
     this._updateTimeString();
     this._timer = setInterval(() => {
       this._updateTimeString.bind(this);
