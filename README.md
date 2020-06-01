@@ -21,3 +21,23 @@
     onSubmit={this.handleSubmitComment.bind(this)}
 >
 ```
+
+> 什么是高阶组件
+
+高阶组件就是一个函数，传给它一个组件，它返回一个新的组件
+
+`const NewComponent = highOrderComponent(OldComponent)`
+
+```react
+import React, {Component} from 'react';
+
+export default  (WrappedComponent) => {
+    class NewComponent extends Component {
+        render(){
+            return  <WrappedComponent />
+        }
+    }
+    return NewComponent
+}
+
+```
