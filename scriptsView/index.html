@@ -12,10 +12,75 @@
     <!-- 数组方法 -->
     <!-- <script src="array.js"></script> -->
     <!-- window对象属性 -->
-    <script src="./window.js"></script>
+    <!-- <script src="./window.js"></script> -->
+    <!-- location方法 -->
+    <!-- <script src="./location.js"></script> -->
+    <!-- 获取元素getElement -->
+    <!-- <script src="./getElement.js"></script> -->
+    <!-- 全选 -->
+    <!-- <script src="./selectAll.js"></script> -->
+    <!-- 动态添加元素 -->
+    <!-- <script src="./addEle.js"></script> -->
+    <!-- 删除元素 -->
+    <script src="./deleteEle.js"></script>
   </head>
   <body>
     <p algin="left">字符的<a href="#anc">引用</a></p>
     <button onclick="disDate()">时间日期</button>
+    <button onclick="OpenBaidu()">跳转百度</button>
+    <hr />
+    <div class="content">
+      <input type="text" id="inputId" />
+      <input type="button" value="通过id查询元素" onclick="queryById()" />
+    </div>
+    <hr />
+    <div id="content1">
+      <input type="checkbox" name="inter" value="跑步" />跑步
+      <input type="checkbox" name="inter" value="游泳" />游泳
+      <input type="checkbox" name="inter" value="篮球" />篮球
+      <input type="checkbox" name="inter" value="足球" />足球
+      <hr />
+      <input type="button" value="通过ByName查询" onclick="queryByName()" />
+    </div>
+    <hr/ >
+    <div>
+      <ul id="list">
+        <li>12</li>
+        <li>13</li>
+        <li>14</li>
+        <li>15</li>
+      </ul>
+      <input type="button" value="查询queryByTagName" onclick="queryByTagName()"
+    </div>
+    <nav>
+      <form>
+        <h3>希望学习的课程</h3>
+        <a href="javascript:choose(true)">全选</a>
+        <a href="javascript:choose(false)">全不选</a>
+        <hr />
+        <div style="text-align: left; padding-left: 140px;">
+          <input type="checkbox" name="kc" value="1" />html
+          <input type="checkbox" name="kc" value="2" />css
+          <input type="checkbox" name="kc" value="3" />javascript
+          <input type="checkbox" name="kc" value="4" />vue
+          <input type="checkbox" name="kc" value="5" />react
+          <input type="checkbox" name="kc" value="6" />node
+          <input type="checkbox" name="kc" value="7" />deno
+        </div>
+      </form>
+    </nav>
+    <hr />
+    <div id="id1">
+      <input type="button" value="添加文本框" onclick="addText()" />
+    </div>
+    <hr />
+    <div id="id2">
+      <input type="button" value="button1" />
+      <input type="button" value="button2" />
+      <input type="button" value="button3" />
+      <input type="button" value="button4" />
+      <br />
+      <input type="button" onclick="delEle()" value="删除元素" />
+    </div>
   </body>
 </html>

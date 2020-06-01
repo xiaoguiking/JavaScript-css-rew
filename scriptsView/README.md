@@ -523,10 +523,94 @@ history(current, previous, next)在现在浏览器中不能整除访问
 
 ##### 3.3.2 location 对象
 
+1.属性
+window.location 访问， location 对象属性保存了当前浏览器地址栏中所有信息
+`http://www.baidu.com/ig/china?hl=zh-CN`
+
+| 属性名   | 描述             | 举例                                   |
+| -------- | ---------------- | -------------------------------------- |
+| protocol | 访问地址协议     | http                                   |
+| hostname | 主机名           | www.baidu.com                          |
+| port     | 访问端口         | 80                                     |
+| host     | 主机名以及端口号 | www.baidu.com:80                       |
+| pathname | 访问路径名       | /ig/china                              |
+| href     | 完成 url 路径    | http://www.baidu.com/ig/china?hl=zh-CN |
+
+// location 方法
+function OpenBaidu() {
+// location.href = "http://www.baidu.com"; // 属性跳转
+location.assign("http://www.baidu.com"); // 方法跳转
+}
 
 ##### 3.4 document 对象
 
+每个载入浏览器的 html 文档都会成为 document 对象，document 对象是 window 对象的一部分，（window.document）
+
+| 属性名  | 描述            |
+| ------- | --------------- |
+| title   | 文档标题        |
+| bgColor | 页面背景色      |
+| cookie  | 设置读出 cookie |
+
+| 方法                  | 描述                                           |
+| --------------------- | ---------------------------------------------- |
+| close()               | 关闭用 close 打开的输出流                      |
+| getElementById()      | 指定 id 的第一个对象获取                       |
+| getElementByName()    | 返回带有指定名称的对象集合                     |
+| getElementByTagName() | 返回带有指定标签名的对象集合                   |
+| open                  | 打开一个流                                     |
+| write                 | 向文档中写 html 或 js                          |
+| writeIn()             | 等同于 write，区别是每个表达式之后写一个换行符 |
+
 ##### 3.4.1.2.3.4 document 对象增删改查
+
+1.查询元素
+
+```js
+// getElementById()  指定id
+function queryById() {
+  // 通过id查询元素
+  var txt = document.getElementById("inputId");
+  alert(txt.value); // 显示文本输入内容
+}
+
+// getElementByName  同一个name名字集合
+
+function queryByName() {
+  var listInput = document.getElementsByName("inter");
+  //   alert(listInput.value);
+  // 通过查询数组的length属性 取得查询元素个数
+  var len = listInput.length;
+  console.log(len);
+  var str = "";
+  for (var i = 0; i < len; i++) {
+    console.log(listInput[i]);
+    str = str + listInput[i].value + ",";
+  }
+  alert(`查询得到元素个数` + len + `元素内容` + str);
+}
+
+// getElementsByTagName()
+function queryByTagName() {
+  var list = document.getElementsByTagName("li");
+  var lenList = list.length;
+  console.log(lenList, "list");
+  var listStr = "";
+  for (var j = 0; j < lenList; j++) {
+    listStr = listStr + list[j].innerText + ",";
+  }
+  alert(`查询元素个数：` + lenList + `元素内容：` + listStr);
+}
+```
+
+2.修改网页元素 （全选和全不选）
+
+3.添加网页元素
+
+- document.createElement() 创建一个元素
+- Element.appendChild() 将创建的网页元素添加到 DOM 中
+
+  4.删除元素 document.removeChild()
 
 #### 3.5 操作表格
 
