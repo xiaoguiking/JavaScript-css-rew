@@ -11,6 +11,7 @@
 //   document.getElementById('root')
 // );
 
+// 功能测试
 let appState = {
   title: {
     text: "React.js小书",
