@@ -11,9 +11,14 @@
 
 // console.log(window.b, window.c) // 3, undefined
 
-// // var可以重新赋值 let不可以, let 不会变量提升
+// // var可以重新赋值 let, let 不会变量提升
 // var b = 4
-// console.log(b) // 4
+// console.log(b) // 
+
+// let 可以重新赋值
+let a = 1;
+let a = 2;
+console.log(a); // 2
 
 // 1.const 不能重复赋值
 // const a = 3
