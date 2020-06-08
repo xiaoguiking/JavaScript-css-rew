@@ -1,4 +1,4 @@
-//  ES6 promise
+//  ES6 promise 学习
 function loadScript(src) {
   // pending // undefined
   return new Promise((resolve, reject) => {
