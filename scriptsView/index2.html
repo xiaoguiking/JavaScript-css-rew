@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>添加行,删除行</title>
+    <style>
+      body,
+      table,
+      th,
+      td {
+        font-size: 12px;
+      }
+      #tableScore {
+        border-collapse: collapse;
+      }
+      #tableScore th {
+        padding: 5px;
+      }
+      #tableScore td {
+        padding: 5px;
+      }
+    </style>
+    <script>
+      function addScore() {
+        var tab = document.getElementById("tableScore");
+        // 得到表格所有行
+        var rows = tab.rows;
+        // 得到输入的数据
+        var name = document.getElementById("userName").value;
+        var java = document.getElementById("java").value;
+        var html = document.getElementById("html").value;
+        var react = document.getElementById("sql").value;
+        console.log(react);
+        var count = parseInt(java) + parseInt(html) + parseInt(react);
+        console.log(count, "sum");
+        // 得到表格
+        var tab = document.getElementById("tableScore");
+        // 创建行
+        var row = tab.insertRow();
+        // 在行上添加单元格
+        var td_name = row.insertCell();
+        td_name.style.textAlign = "center"; // 设置文本居中对齐
+        td_name.innerText = name;
+
+        var td_java = row.insertCell();
+        td_java.style.textAlign = "center"; // 设置文本居中对齐
+        td_java.innerText = java;
+
+        var td_html = row.insertCell();
+        td_html.style.textAlign = "center"; // 设置文本居中对齐
+        td_html.innerText = html;
+
+        var td_sql = row.insertCell();
+        td_sql.style.textAlign = "center"; // 设置文本居中对齐
+        td_sql.innerText = react;
+
+        var td_count = row.insertCell();
+        td_count.style.textAlign = "center"; // 设置文本居中对齐
+        td_count.innerText = count;
+      }
+      // 删除行
+      function delScore() {
+        var tab = document.getElementById("tableScore");
+        if (tab.rows.length > 1) {
+          tab.deleteRow(tab.rows.length - 1);
+        } else {
+          alert("没有可以删除的许愿了");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div style="text-align: center;">
+      姓名：
+      <input type="text" id="userName" size="10" />&nbsp;&nbsp; JAVA：<input
+        type="text"
+        id="java"
+        size="3"
+        maxlength="2"
+      />&nbsp;&nbsp; HTML：
+      <input id="html" size="3" maxlength="2" />&nbsp;&nbsp; SqlServer：<input
+        id="sql"
+        type="text"
+        size="3"
+        maxlength="2"
+      />
+      <input type="button" value="添加" onClick="addScore()" />
+      <input type="button" value="删除" onClick="delScore()" />
+    </div>
+
+    <hr size="1" />
+    <table
+      id="tableScore"
+      width="470"
+      border="1"
+      borderColor="#003399"
+      align="center"
+    >
+      <tr bgcolor="#0099FF" align="center">
+        <th>姓名</th>
+        <th>JAVA</th>
+        <th>html</th>
+        <th>react</th>
+        <th>总成绩</th>
+      </tr>
+      <tr align="center">
+        <td>张三</td>
+        <td>20</td>
+        <td>30</td>
+        <td>40</td>
+        <td>90</td>
+      </tr>
+      <tr align="center">
+        <td>李四</td>
+        <td>20</td>
+        <td>30</td>
+        <td>40</td>
+        <td>90</td>
+      </tr>
+    </table>
+  </body>
+</html>

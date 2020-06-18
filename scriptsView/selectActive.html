@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>下拉省市联动</title>
+    <style></style>
+    <script>
+      function choose() {
+        var pro = document.getElementById("pro").value;
+        var city = document.getElementById("city");
+        //  删除下拉框中原有的选项
+        city.options.length = 0;
+
+        if (pro === "重庆") {
+          var cq = new Option("重庆", "重庆");
+          city.options.add(cq);
+          var cq1 = new Option("重庆1", "重庆1");
+          city.options.add(cq1);
+          var cq2 = new Option("重庆2", "重庆2");
+          city.options.add(cq2);
+          var cq3 = new Option("重庆3", "重庆3");
+          city.options.add(cq3);
+          var cq4 = new Option("重庆4", "重庆4");
+          city.options.add(cq4);
+        } else if (pro === "四川") {
+          var sc = new Option("四川", "四川");
+          city.options.add(sc);
+          var sc1 = new Option("四川1", "四川1");
+          city.options.add(sc1);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <select id="pro" onchange="choose()">
+      <option value="重庆">重庆</option>
+      <option value="四川">四川</option>
+    </select>
+    省（直辖市)）
+    <select id="city">
+      <option value="重庆">重庆</option>
+      <option value="万州">万州</option>
+      <option value="开县">开县</option>
+      <option value="合川">合川</option>
+    </select>
+  </body>
+</html>
