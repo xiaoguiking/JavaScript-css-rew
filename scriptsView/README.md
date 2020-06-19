@@ -646,9 +646,37 @@ function queryByTagName() {
 
 #### 3.10 js 创建对象
 
+```js
+对象构造器;
+function Student(name, age, color) {
+  this.name = name;
+  this.color = color;
+  this.age = age;
+}
+// 调用构造器
+var someBody = new Student("tian", 12, "red");
+var sName = prompt("what is your name");
+var sAge = prompt("How old are you this year");
+var sColor = prompt("what is your favorite color");
+var someBody = new (sName, sAge, sColor);
+
+访问： someBody.name 或者someBody['name']
+```
+
 #### 3.11 js 访问样式属性
 
+如果 js 访问 style 多属性
+
+```js
+document.body.style.color = "color";
+document.body.style.fontSize = "15px";
+```
+
 #### 3.12 常用事件
+
+#### 3.14正则表达式
+
+#### 3.15 
 
 ### 页面信息交互
 
