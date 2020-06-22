@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>内容滚动</title>
+    <style>
+      #div1 {
+        position: absolute;
+        left: 50px;
+        top: 50px;
+        background-color: #ff0000;
+        height: 50px;
+        width: 250px;
+      }
+    </style>
+    <script>
+      function deScroll() {
+        console.log(1);
+        div1.style.top = document.body.scrollTop + 50;
+        div1.style.left = document.body.scrollLeft;
+      }
+    </script>
+  </head>
+  <body onscroll="deScroll()">
+    <textarea name="text1" rows="100" cols="500" id="text"></textarea>
+    <div id="div1">内容</div>
+  </body>
+</html>

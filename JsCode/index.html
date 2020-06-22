@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function table(x, y) {
+        document.write('<table id="table"></table>');
+        var table = document.getElementById("table");
+        table.width = 500;
+        table.border = 2;
+        for (var i = 0; i < x; i++) {
+          var row = document.createElement("tr");
+          table.appendChild(row);
+          for (var j = 0; j < y; j++) {
+            var td = document.createElement("td");
+            td.innerText = j;
+            row.appendChild(td);
+          }
+        }
+      }
+      var valueX = 20,
+        valueY = 20;
+      table(valueX, valueY);
+    </script>
+  </body>
+</html>

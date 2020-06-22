@@ -614,6 +614,20 @@ function queryByTagName() {
 
 #### 3.5 操作表格
 
+| 属性名 | 描述                                     |     |
+| ------ | ---------------------------------------- | --- |
+| rows   | 得到来自 table 对象的 tr，表格行对象集合 |     |
+| cells  | 得到整个表格中所有单元格的集合           |     |
+
+| 方法名                | 描述                                                        |     |
+| --------------------- | ----------------------------------------------------------- | --- |
+| insertRow()           | 在表格中创建新行，并将行新行添加到 rows 集合中              |     |
+| deleteRow()           | 删除指定行                                                  |     |
+| moveRow(tr, index)    | 将表格行移动到新位置                                        |     |
+| cells                 | 得到表格行中所有单元格的集合                                |     |
+| insertCell()          | 在表格行行 tr 中创建新单元格，并将单元格添加到 cells 集合中 |     |
+| deleteCell(tr, index) | 从表格行以及 cells 中删除指定单元格                         |     |
+
 #### 3.5.1 表格的树形结构
 
 #### 3.5.2 遍历行
@@ -632,9 +646,37 @@ function queryByTagName() {
 
 #### 3.10 js 创建对象
 
+```js
+对象构造器;
+function Student(name, age, color) {
+  this.name = name;
+  this.color = color;
+  this.age = age;
+}
+// 调用构造器
+var someBody = new Student("tian", 12, "red");
+var sName = prompt("what is your name");
+var sAge = prompt("How old are you this year");
+var sColor = prompt("what is your favorite color");
+var someBody = new (sName, sAge, sColor);
+
+访问： someBody.name 或者someBody['name']
+```
+
 #### 3.11 js 访问样式属性
 
+如果 js 访问 style 多属性
+
+```js
+document.body.style.color = "color";
+document.body.style.fontSize = "15px";
+```
+
 #### 3.12 常用事件
+
+#### 3.14正则表达式
+
+#### 3.15 
 
 ### 页面信息交互
 

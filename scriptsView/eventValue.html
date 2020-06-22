@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件源event</title>
+    <script>
+      function show() {
+        var str = "";
+        str += "事件类型" + event.type;
+        str += "鼠标x坐标" + event.x;
+        str += "鼠标y坐标" + event.y;
+        if (event.button === 0) {
+          str += "鼠标左键";
+        } else if (event.button === 2) {
+          str += "鼠标右键";
+        } else if (event.button === 4) {
+          str += "鼠标中键";
+        }
+        // 得到触发对手
+        var src = event.srcElement;
+        str += src.type + ":" + src.value;
+
+        alert(str);
+      }
+    </script>
+  </head>
+  <body>
+    <input type="button" value="查看事件源" onclick="show()" />
+  </body>
+</html>

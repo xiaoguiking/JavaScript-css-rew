@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>demo js test1</title>
+    <!-- <script src="./demo.js"></script> -->
+
+    <!-- <script src="./cookie.js"></script> -->
+    <style>
+      body,
+      table,
+      th,
+      td {
+        font-size: 12px;
+      }
+      #tableScore {
+        border-collapse: collapse;
+      }
+      #tableScore th {
+        padding: 5px;
+      }
+      #tableScore td {
+        padding: 5px;
+      }
+    </style>
+    <script>
+      function disScore() {
+        var tab = document.getElementById("tableScore");
+        // 得到表格所有行
+        var rows = tab.rows;
+        for (var i = 1; i < rows.length; i++) {
+          console.log(rows[i]);
+          //  得到各项内容
+          //   <th>姓名</th>
+          // <th>JAVA</th>
+          // <th>html</th>
+          // <th>react</th>
+          // <th>总成绩</th>
+          var name = rows[i].childNodes[1].innerText;
+          // console.log(name);
+          var ja = rows[i].childNodes[3].innerText;
+          // console.log(ja);
+          var html = rows[i].childNodes[5].innerText;
+          // console.log(html);
+          var react = rows[i].childNodes[7].innerText;
+          // console.log(react);
+          var sum = rows[i].childNodes[9].innerText;
+          console.log(`${name},${ja},${htm},${reac},${sum}`);
+          alert(`${name},${ja},${html},${react},${sum}`);
+        }
+        console.log(rows);
+      }
+    </script>
+  </head>
+  <body>
+    <input type="button" value="查看表中成绩" onClick="disScore()" />
+    <hr />
+    <table
+      id="tableScore"
+      width="440"
+      border="1"
+      borderColor="#003399"
+      align="center"
+    >
+      <tr bgcolor="#0099FF">
+        <th>姓名</th>
+        <th>JAVA123</th>
+        <th>html123</th>
+        <th>react123</th>
+        <th>总成绩</th>
+      </tr>
+      <tr>
+        <td>张三</td>
+        <td>20</td>
+        <td>30</td>
+        <td>40</td>
+        <td>90</td>
+      </tr>
+      <tr>
+        <td>李四</td>
+        <td>20</td>
+        <td>30</td>
+        <td>40</td>
+        <td>90</td>
+      </tr>
+    </table>
+  </body>
+</html>
