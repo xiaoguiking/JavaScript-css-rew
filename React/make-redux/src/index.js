@@ -1,61 +1,65 @@
-// import React from "react";
-// import ReactDOM from "react-dom";
-// import './index.css';
-// import App from './App';
-// import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import PropTypes from "prop-types";
+import Header from "./ReduxCode/Header";
+import Content from "./ReduxCode/Content";
 
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
+//  创建仓库
 
-// 功能测试
-let appState = {
-  title: {
-    text: "React.js小书",
-    color: "red",
-  },
-  content: {
-    text: "React小书内容",
-    color: "blue",
-  },
+function createStore(reducer) {
+  let state = null;
+  const listeners = [];
+  const subscribe = (listener) => listeners.push(listener);
+  const getState = () => state;
+  const dispatch = (action) => {
+    state = reducer(state, action);
+    listeners.forEach((listener) => listener());
+  };
+  dispatch({}); // 初始化state
+  return { getState, dispatch, subscribe };
+}
+
+const themeReducer = (state, action) => {
+  if (!state) {
+    return {
+      themeColor: "red",
+    };
+  }
+  
+  switch (action.ype) {
+    case "CHANGE_COLOR":
+      return {
+        ...state,
+        themeColor: action.themeColor,
+      };
+    default:
+      return state;
+  }
 };
 
-// dispatch 中间人
-function dispatch(action) {
-  switch (action.type) {
-    case "UPDATE_TITLE_TEXT":
-      appState.title.text = action.text;
-      break;
-    case "UPDATE_TITLE_COLOR":
-      appState.title.color = action.color;
-      break;
-    default:
-      break;
+const store = createStore(themeReducer);
+
+class Index extends React.Component {
+  static childContextTypes = {
+    store: PropTypes.object,
+  };
+  getChildContext() {
+    return { store };
+  }
+  render() {
+    return (
+      <div>
+        <Header />
+        <Content />
+      </div>
+    );
   }
 }
 
-function renderApp(appState) {
-  renderTitle(appState.title);
-  renderContent(appState.content);
-}
-
-// title
-function renderTitle(title) {
-  const titleDOM = document.getElementById("title");
-  titleDOM.innerHTML = title.text;
-  titleDOM.style.color = title.color;
-}
-// content
-function renderContent(content) {
-  const contentDOM = document.getElementById("content");
-  contentDOM.innerHTML = content.text;
-  contentDOM.style.color = content.color;
-}
-
-renderApp(appState); // 首次渲染页面
-dispatch({ type: "UPDATE_TITLE_TEXT", text: "<react js 小书>" }); // 修改标题
-dispatch({ type: "UPDATE_TITLE_COLOR", color: "blue" }); // 修改标题
-renderApp(appState);
+ReactDOM.render(
+  <React.StrictMode>
+    <Index />
+  </React.StrictMode>,
+  document.getElementById("root")
+);
