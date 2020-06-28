@@ -70,7 +70,7 @@ function stateChanger(state, action) {
     default:
       return state; // 没有修改，返回原来的对象
   }
-}
+};
 
 const store = createStore(appState, stateChanger);
 let oldState = store.getState(); // 缓存旧的 state
