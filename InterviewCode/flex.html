@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>骰子6星布局</title>
+    <style>
+      .water-waves {
+        width: 310px;
+        height: 310px;
+        border: 1px solid blue;
+        display: flex;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+      }
+
+      .water-waves .row div {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: blue;
+        border: 1px solid red;
+      }
+
+      .water-waves .row {
+        display: flex;
+        flex-basis: 100%;
+        flex-wrap: wrap;
+      }
+
+      .water-waves .row:nth-of-type(2) {
+        justify-content: center;
+      }
+
+      .water-waves .row:nth-of-type(3) {
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="water-waves">
+      <div class="row">
+        <div class="water-wave"></div>
+        <div class="water-wave"></div>
+        <div class="water-wave"></div>
+      </div>
+      <div class="row">
+        <div class="water-wave"></div>
+      </div>
+      <div class="row">
+        <div class="water-wave"></div>
+        <div class="water-wave"></div>
+      </div>
+    </div>
+  </body>
+</html>

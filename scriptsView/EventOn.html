@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>onBlur onFocus</title>
+    <style>
+      input {
+        background-color: #0099ff;
+        font-size: 20px;
+        border: 1px solid;
+      }
+    </style>
+    <script>
+      function styleBody() {
+        document.body.style.backgroundColor = "#ffff66";
+      }
+
+      //  聚焦
+      function Focus() {
+        if (document.myForm.card.value === "请注意提交格式") {
+          console.log(1);
+          // 清空格式
+          document.myForm.card.value = "";
+        }
+      }
+      // 失去焦点
+      function Blur(e) {
+        console.log(2);
+        var a = document.myForm.card.value;
+        // 判断是否是10开头并且是数组
+        if (a.substr(0, 2) !== "10" || isNaN(a)) {
+          alert("格式输入错误,请输入10开头");
+          console.log("格式输入错误,请输入10开头");
+          //   鼠标光标回到文本框
+          //  选中已经输入的内容
+          document.myForm.card.focus();
+          document.myForm.card.select;
+        } else {
+          alert("输入正确");
+        }
+      }
+    </script>
+  </head>
+  <body onload="styleBody()">
+    <form name="myForm">
+      <table
+        border="0"
+        align="center"
+        width="400"
+        cellspacing="0"
+        cellpadding="0"
+      >
+        <caption>
+          <h2>
+            onBlur 和 onFocus
+          </h2>
+        </caption>
+        <tr>
+          <td width="162" align="right">卡号</td>
+          <td width="239">
+            <input
+              type="text"
+              name="card"
+              id="card"
+              onblur="Blur()"
+              onfocus="Focus()"
+              value="请注意提交格式"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td width="162" align="right">密码</td>
+          <td width="239">
+            <input type="text" name="pwd" id="pwd" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

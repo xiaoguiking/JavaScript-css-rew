@@ -1,0 +1,156 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>选项卡</title>
+    <style>
+      /* 设置tabNav样式 */
+      #tabNav {
+        width: 400px;
+        list-style: none;
+        border-bottom: 1px solid green;
+        padding-left: 0;
+        padding-bottom: 26px;
+        margin: 0;
+      }
+      /* 设置ul li 样式 */
+      #tabNav li {
+        float: left;
+        height: 25px;
+        margin: 0 10px -2px 0;
+        background-color: green;
+        color: black;
+        padding: 0;
+        border: 1px solid green;
+        border-bottom: 0;
+      }
+      /*  hove样式*/
+      #tabNav a:hover,
+      #tabNav a:visited {
+        display: block;
+        text-decoration: none;
+        padding: 5px 10px 3px 10px;
+      }
+      /* tabContent样式 */
+      #tabContent {
+        width: 400px;
+        height: 200px;
+        border: 1px solid green;
+        border-top-width: 0;
+      }
+      /* 选中后样式 */
+      #tabNav li.active {
+        background-color: #ffcc00;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="tabNav">
+      <li id="tab1" class="active" onmouseover="showCount(1)">
+        <a href="#">新闻</a>
+      </li>
+      <li id="tab2" showCount(2) class=""><a href="#">体育</a></li>
+      <li id="tab3" showCount(3) class=""><a href="#">娱乐</a></li>
+    </ul>
+    <div id="tabContent">
+      <div id="content1">新闻内容</div>
+      <div id="content2" style="display: none;">体育内容</div>
+      <div id="content3" style="display: none;">娱乐内容</div>
+    </div>
+    <script>
+      function showCount(index) {
+        console.log(1);
+        // 根据s事件获取对应层
+        var e = document.getElementById("content" + index);
+        console.log(e, "1");
+        e.style.display = "";
+        // 判断层号，并且隐藏其他层
+        for (let i = 1; i < 4; i++) {
+          if (i !== index) {
+            var e2 = document.getElementById("content" + i);
+            console.log(e2, "12");
+            e2.style.display = "none";
+            document.getElementById("tab" + i).className = "";
+          } else {
+            //   选中样式
+            document.getElementById("tab" + i).className = "active";
+          }
+        }
+      }
+    </script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <style>
+      * {
+        text-align: center;
+      }
+      nav li {
+        display: inline;
+        width: 24%;
+        text-decoration: none;
+        padding: 15px;
+      }
+      li:hover {
+        background-color: lightblue;
+      }
+      section {
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <!--导航栏部分HTML代码-->
+    <nav id="nav">
+      <ul>
+        <li class="act">选卡1</li>
+        <li>选卡2</li>
+        <li>选卡3</li>
+        <li>选卡4</li>
+      </ul>
+    </nav>
+    <!--内容部分HTML代码-->
+    <div id="container">
+      <section class="tab" style="background-color: tomato;">内容1</section>
+      <section class="tab" style="background-color: cyan;">内容2</section>
+      <section class="tab" style="background-color: blueviolet;">内容3</section>
+      <section class="tab" style="background-color: gold;">内容4</section>
+    </div>
+    <script>
+      window.onload = function () {
+        //   获取标签最大盒子
+        var nav = document.getElementById("nav");
+        // 获取最大盒子里面每个li
+        var oNav = nav.getElementsByTagName("li");
+        //获取内容区域
+        var container = document.getElementById("container");
+        // 获取内容区每个盒子
+        var oDiv = container.getElementsByClassName("tab");
+
+        for (var i = 0; i < oNav.length; i++) {
+          oNav[i].index = i;
+          oNav[i].onclick = function () {
+            for (var i = 0; i < oNav.length; i++) {
+              oNav[i].className = "";
+              oDiv[i].style.display = "none";
+            }
+            this.className = "act";
+            oDiv[this.index].style.display = "block";
+          };
+
+          for (var m = 1; m < oNav.length; m++) {
+            oNav[m].className = "";
+            oDiv[m].style.display = "none";
+          }
+        }
+      };
+    </script>
+  </body>
+</html>

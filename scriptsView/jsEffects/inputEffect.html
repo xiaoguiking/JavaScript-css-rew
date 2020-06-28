@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>输入框输入样式特效</title>
+  </head>
+  <body onload="loadStyle()">
+    <table width="400" align="center">
+      <caption align="center">
+        输入框样式特效
+      </caption>
+      <tr>
+        <td align="right">用户名:</td>
+        <td>
+          <input type="text" id="input" onfocus="clearText(this)"
+          onmouseover="mouseOver(this)" onmouseout="mouseOut(this)" value ="type
+          here" name="userName" size="28"
+        </td>
+      </tr>
+    </table>
+    <script>
+      // 改变布局背景颜色
+      function loadStyle() {
+        document.body.style.backgroundColor = "#ffcc99";
+      }
+      //   鼠标移入上面
+      function mouseOver(input) {}
+      console.log(input, "input");
+      input.style.borderColor = "blue";
+      input.style.backgroundColor = "#ffff66";
+
+      // 鼠标移出
+      function mouseOut(input) {
+        input.style.borderColor = "#000";
+        input.style.backgroundColor = "#fff";
+      }
+      //   聚焦
+      function clearText(input) {
+        input.value = "";
+        // var input = document.getElementById("input");
+        // document.input.style.borderColor = "blue";
+      }
+    </script>
+  </body>
+</html>

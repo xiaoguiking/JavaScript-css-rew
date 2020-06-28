@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>背景改变按钮</title>
+  </head>
+  <body>
+    <button onclick="changeColor()">
+      背景改变按钮
+    </button>
+    <div style="width: '200px'; height: 400; border: 1px solid red;">color</div>
+    <script>
+      // 随机颜色
+
+      function rgb() {
+        //rgb颜色随机
+        var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+        var rgb = "rgb" + "(" + r + "," + g + "," + b + ")";
+        return rgb;
+      }
+      console.log(rgb());
+      function color16() {
+        //十六进制颜色随机
+        var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+        var color = "#" + r.toString(16) + g.toString(16) + b.toString(16);
+        return color;
+      }
+
+      function changeColor() {
+        document.body.style.backgroundColor = rgb();
+        console.log(1);
+        console.log(document.body.style.backgroundColor, "color");
+
+        var div = document.querySelector("div");
+        console.log(div, "div");
+      }
+    </script>
+  </body>
+</html>
