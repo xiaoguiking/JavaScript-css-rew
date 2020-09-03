@@ -52,8 +52,22 @@
 
 // export default { data, error };
 
-export default class Test {
+// 默认倒出
+// export default class Test {
+//   constructor() {
+//     this.id = 4;
+//   }
+// }
+
+// 用* as mod接收
+export class Father {
   constructor() {
     this.id = 4;
+  }
+}
+
+export class Son {
+  constructor() {
+    this.name = "lintian ";
   }
 }

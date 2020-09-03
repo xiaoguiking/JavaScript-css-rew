@@ -8,4 +8,7 @@
 // import "./promise"; // ES5 回调地狱
 // import "./promise01"; // ES6 promise
 // import "./async"; // ES6  async await 4-1
-import "./less2-18"; // 模块文件
+// import "./less2-18"; // 模块文件
+// import "./3-1.js"; //includes 
+//import "./4-1.js";  //async
+import "./4-2.js"
