@@ -9,6 +9,8 @@
 // import "./promise01"; // ES6 promise
 // import "./async"; // ES6  async await 4-1
 // import "./less2-18"; // 模块文件
-// import "./3-1.js"; //includes 
+// import "./3-1.js"; //includes
 //import "./4-1.js";  //async
-import "./4-2.js"
+// import "./4-2.js";   // Object.keys, values, entries
+// import "./4-3.js"; // 字符串补白
+import "./4-4.js"; // 描述符限制
