@@ -13,4 +13,8 @@
 //import "./4-1.js";  //async
 // import "./4-2.js";   // Object.keys, values, entries
 // import "./4-3.js"; // 字符串补白
-import "./4-4.js"; // 描述符限制
+//import "./4-4.js"; // 描述符限制
+// import "./5-1.js"; // es9异步操作中的集合如何遍历
+// import "./5-2.js"; //ES9中promise 如何兜底
+import "./5-3.js"; //Object的 Rest和Spread
+// import "./5-4.js"; //Object的 Rest和Spread
