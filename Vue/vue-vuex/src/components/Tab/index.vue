@@ -3,43 +3,42 @@
     <a
       href="javascript:;"
       :class="[{ current: curInx === 0 }]"
-      @click="changeTab(0)"
+      @click="setCurInx(0)"
       >选项1</a
     >
 
     <a
       href="javascript:;"
       :class="[{ current: curInx === 1 }]"
-      @click="changeTab(1)"
+      @click="setCurInx(1)"
       >选项2</a
     >
 
     <a
       href="javascript:;"
       :class="[{ current: curInx === 2 }]"
-      @click="changeTab(2)"
+      @click="setCurInx(2)"
       >选项3</a
     >
 
     <a
       href="javascript:;"
       :class="[{ current: curInx === 3 }]"
-      @click="changeTab(3)"
+      @click="setCurInx(3)"
       >选项4</a
     >
   </div>
 </template>
 
 <script>
+import { mapState, mapMutations } from "vuex";
 export default {
   name: "Tab",
-  props: {
-    curInx: Number
+  computed: {
+    ...mapState(["curInx"])
   },
   methods: {
-    changeTab(index) {
-      this.$emit("changeTab", index);
-    }
+    ...mapMutations(["setCurInx"])
   }
 };
 </script>

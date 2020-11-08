@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <tab :curInx="curInx" @changeTab="changeTab" />
-    <page :curInx="curInx" />
+    <tab />
+    <page />
   </div>
 </template>
 

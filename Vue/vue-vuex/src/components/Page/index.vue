@@ -5,10 +5,11 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "Page",
-  props: {
-    curInx: Number
+  computed: {
+    ...mapState(["curInx"])
   },
   data() {
     return {
