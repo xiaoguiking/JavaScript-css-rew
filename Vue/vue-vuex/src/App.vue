@@ -1,18 +1,21 @@
 <template>
   <div id="app">
-    <tab />
-    <page />
+    <!-- <tab />
+    <page /> -->
+    <my-part />
   </div>
 </template>
 
 <script>
-import Tab from "@/components/Tab";
-import Page from "@/components/Page";
+// import Tab from "@/components/Tab";
+// import Page from "@/components/Page";
+import MyPart from "@/components/Part1";
 export default {
   name: "App",
   components: {
-    Tab,
-    Page
+    // Tab,
+    // Page,
+    MyPart,
   },
   data() {
     return {
