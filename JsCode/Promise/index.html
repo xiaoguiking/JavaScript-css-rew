@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>promise_race 测试接口资源的响应速度</title>
+  </head>
+  <body>
+    <script>
+      function getImg() {
+        return new Promise((resolve, reject) => {
+          const oImg = new Image();
+          oImg.onload = function () {
+            resolve(oImg);
+          };
+          oImg.src =
+            "https://pic.rmb.bdstatic.com/435e3a96fb5420296f41673e57147726.png";
+          //   console.log(oImg.src);
+          // "http://pic.netbian.com/uploads/allimg/201207/233833-1607355513c763.jpg";
+        });
+        // http://pic.netbian.com/uploads/allimg/210107/215434-16100276747bd4.jpg
+      }
+
+      function timeout() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            reject("图片超时");
+          }, 100);
+        });
+      }
+      Promise.race([getImg(), timeout()])
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    </script>
+  </body>
+</html>
