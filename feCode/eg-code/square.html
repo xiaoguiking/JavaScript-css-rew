@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 实现自适应正方形</title>
+</head>
+<style>
+    /* 方案一 vw vh 实现 */
+    /* .box {
+        width: 100vw;
+        height: 100vh;
+        background: #F2DEDE;
+    } */
+
+
+
+    /* 方案二 padding 
+    * margin, padding 的百分比数值是相对 父元素宽度 的宽度计算的。
+    *由此可以发现只需将元素垂直方向的一个 padding 值设定为与 width 相同的百分比就可以制作出自适应正方形
+    *
+    */
+
+    /* .box{
+        width: 100%; */
+    /* padding百分比相对父元素宽度计算 */
+    /* padding-bottom: 100%; */
+    /*避免被内容撑开多余的高度 */
+    /* height: 0;
+        background-color: blue;
+    } */
+
+
+    /* 方案3  利用伪元素的 margin(padding)-top 撑开容器  */
+    /* .box {
+        width: 100%;
+        overflow: hidden;
+        background: #F2DEDE;
+    }
+
+    .box::after {
+        content: "";
+        display: block;
+        margin-top: 100%;
+    } */
+
+
+    .container {width: 100%;background: #F2DEDE;position: relative;}
+    .container::after {content: "";display: block;padding-top: 100%;}
+    .container .box{position: absolute;width: 100%;height: 100%;}
+</style>
+
+<body>
+    <div class="container">
+        <div class="box">内容</div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如何在页面上实现一个圆形的可点击区域？</title>
+    <style>
+        .disc {
+            width:100px;
+        height:100px;
+        background-color:dimgray;
+        border-radius: 50%;
+        cursor: pointer;
+        position: absolute;
+        left:50px;
+        top:50px;
+        line-height: 100px;
+        text-align: center;
+        color: white;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2F2c.zol-img.com.cn%2Fproduct%2F124_500x2000%2F748%2FceZOdKgDAFsq2.jpg&refer=http%3A%2F%2F2c.zol-img.com.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1625731178&t=d9ef1699cb9e0b7c6128d95fbc971321 width="1366" height="768" border="0" usemap="#Map" />  
+<map name="Map" id="Map">  
+ <area shape="circle" coords="100,100,50" href="https://www.baidu.com" target="_blank" />  
+</map>   -->
+
+    <div class="disc">点击区域</div>
+    <script>
+                document.onclick = function(e){
+            var r = 50;  //圆的半径
+            var x1 = 100,  y1 = 100;  
+            var x2 = e.clientX,
+                y2 = e.clientY;
+            var len=Math.abs(Math.sqrt(Math.pow(x2-x1,2)+Math.pow(y2-y1,2)));  
+            if(len<=50){
+                console.log("Inner");
+            }else{
+                console.log("Outer");
+            }
+        }
+    </script>
+</body>
+
+</html>
